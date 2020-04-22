@@ -4,6 +4,7 @@ El videojuego esta basado en la exploracion de mazmorras, donde habrá varios en
 
 ## Integrantes del equipo
 Pablo Martinez Conde - pmartinezconde
+
 Miguel Ángel Pascual Collar - ClonTrolls
 
 ## Objetivos del trabajo
