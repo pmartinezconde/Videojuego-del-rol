@@ -10,7 +10,11 @@ Miguel Ángel Pascual Collar - ClonTrolls
 ## Objetivos del trabajo
 
 Diseñar el código que definirá al personaje, a los enemigos y sus propiedades.
+
 Crear la interfaz gráfica del juego.
+
 Diseñar un sistema de turnos basado en la velocidad de cada elemento (enemigos o el propio personaje).
+
 Diseñar un sistema de inventario y varios objetos que puedas obtener a lo largo del juego.
+
 Darle jugabilidad y sensación de que el jugador se va haciendo mas fuerte con mecánicas como la subida de nivel y el poder elegir que estadisticas quiere mejorar el jugador al subir de nivel.
