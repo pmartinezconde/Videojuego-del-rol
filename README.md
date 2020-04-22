@@ -17,4 +17,4 @@ Diseñar un sistema de turnos basado en la velocidad de cada elemento (enemigos 
 
 Diseñar un sistema de inventario y varios objetos que puedas obtener a lo largo del juego.
 
-Darle jugabilidad y sensación de que el jugador se va haciendo mas fuerte con mecánicas como la subida de nivel y el poder elegir que estadisticas quiere mejorar el jugador al subir de nivel.
+Darle jugabilidad y sensación de que el jugador progresa con mecánicas como la subida de nivel y el poder elegir que estadisticas quiere mejorar el jugador al subir de nivel.
