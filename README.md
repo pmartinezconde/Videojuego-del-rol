@@ -3,9 +3,9 @@
 El videojuego esta basado en la exploracion de mazmorras, donde habrá varios enemigos y objetos que puedes obtener. El juego se regira por un sistema de turnos y tendra un sistema de niveles y demas propiedades clasicas del genero. 
 
 ## Integrantes del equipo
--Pablo Martinez Conde - pmartinezconde
+- Pablo Martinez Conde - pmartinezconde
 
--Miguel Ángel Pascual Collar - ClonTrolls
+- Miguel Ángel Pascual Collar - ClonTrolls
 
 ## Objetivos del trabajo
 
