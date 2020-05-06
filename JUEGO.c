@@ -3,8 +3,11 @@
 #define LONG 10
 typedef struct
 {
+	char nombespada;
 	int espada;
+	char nombarmadura;
 	int armadura; 
+	char nombescudo;
 	int escudo;
 } Inventario;
 typedef struct
