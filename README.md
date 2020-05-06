@@ -11,9 +11,9 @@ El videojuego esta basado en la exploracion de mazmorras, donde habrá varios en
 
 Diseñar el código que definirá al personaje, a los enemigos y sus propiedades.
 
-Crear la interfaz gráfica del juego.
+Diseñar una historia para el juego.
 
-Diseñar un sistema de turnos basado en la velocidad de cada elemento (enemigos o el propio personaje).
+Diseñar un sistema de turnos.
 
 Diseñar un sistema de inventario y varios objetos que puedas obtener a lo largo del juego.
 
@@ -22,5 +22,3 @@ Darle jugabilidad y sensación de que el jugador progresa con mecánicas como la
 Ordenador
 ## Software
 C++
-
-Unity
