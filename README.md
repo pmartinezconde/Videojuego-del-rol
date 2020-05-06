@@ -21,4 +21,4 @@ Darle jugabilidad y sensación de que el jugador progresa con mecánicas como la
 ## Hardware
 Ordenador
 ## Software
-C++
+C
