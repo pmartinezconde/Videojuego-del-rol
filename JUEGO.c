@@ -29,50 +29,44 @@ switch(menu)
     printf("Introduzca el nombre del personaje(10 caracteres maximo):\n");
     fflush(stdin);
     gets(pers.nombre);   
-    printf("Elige la clase de tu personaje: \n 1-Guerrero\n 2-Barbaro\n 3-Guardian\n 4-Caballero\n");
+    printf("Elige la clase de tu personaje: \n 1-Guerrero\n 2-Barbaro\n 3-Guardian\n 4-Caballero\n\n-El guerrero ha sobrevivido multiples batallas, teniendo un cuerpo resistente\n-El barbaro aprovecha su fuerza natural para atacar a sus enemigos\n-El guardian esta entrenado en el arte de la defensa, reduciendo las posibilidades de sufrir daño\n-El caballero ha entrenado en varias artes, siendo un personaje equilibrado\n");
     scanf("%c",&menunum);
-    switch(menunum);
-    {
-    	case '1':
-    		{
-    			printf("El guerrero ha sobrevivido multiples batallas, teniendo un cuerpo resistente\n");
+    
+    	if(menunum=='1')
+    		{	
     			pers.atk=6;
     			pers.hp=35;
     			pers.def=6;
     			
     			printf("Ataque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
-			}break;
+			}
     	
-		case '2':
+		else if(menunum=='2')
 			{
-				printf("El barbaro aprovecha su fuerza natural para realizar el maximo daño\n");
 				pers.atk=15;
     			pers.hp=20;
     			pers.def=6;
     			
     			printf("Ataque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
-			}break;
-		case '3':	
+			}
+		else if(menunum=='3')	
 			{
 				pers.atk=6;
     			pers.hp=20;
     			pers.def=15;
-				printf("El guardian esta entrenado en el arte de la defensa, reduciendo las posibilidades de sufrir daño\n");
 				
 				printf("Ataque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
-			}break;
-		case '4':
+			}
+		else if(menunum=='4')
 			{
-				printf("El caballero ha entrenado en varias artes, siendo un personaje equilibrado\n");
 				pers.atk=10;
     			pers.hp=20;
     			pers.def=10;
     			
     			printf("Ataque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
-			}break;
-	}
-    system("PAUSE");
-    } break;
+			}
+}break;
+    
     case '2':
     {
     printf("¡Hasta la proxima!");
@@ -81,5 +75,5 @@ switch(menu)
     {
     } break;
 }
-    return 0;
+return 0;
 }
