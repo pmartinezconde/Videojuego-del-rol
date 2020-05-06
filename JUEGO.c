@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #define LONG 10
@@ -34,6 +35,7 @@ switch(menu)
     
     printf("Elige la clase de tu personaje: \n 1-Guerrero\n 2-Barbaro\n 3-Guardian\n 4-Caballero\n");
     scanf("%i",&menunum);
+    switch(menunum);
     {
     	case 1:
     		{
