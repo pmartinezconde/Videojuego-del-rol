@@ -82,11 +82,14 @@ Inventario inv;
 Personaje pers;	
 char menu,menunum;
 int rehacer, pista, muerte=0;
-do
-{
+
+
 system("cls");
 printf("MENU, ELIGE :\n 1-Empezar partida\n 2-Salir del juego\n");
 scanf("%c",&menu);
+do
+{
+
 switch(menu)
 {
     case '1':
@@ -138,6 +141,8 @@ switch(menu)
 	printf("-1 Comenzar aventura\n-2 Volver al menu para cambiar personaje\n");
 	scanf("%i",&rehacer);
 	if(rehacer==1)
+	{
+		do
 		{	
 			inv.dinero=0;
 			stats(pers.hp, pers.hpactual,pers.atk,pers.def,inv.dinero);
@@ -148,8 +153,8 @@ switch(menu)
 		}
 			while(0<menunum<5);
 		
-		}
-	
+	}
+}
 	break;
     
     case '2':
@@ -161,9 +166,10 @@ switch(menu)
     
     {	
     } break;
+
 }
-}
-    while(rehacer==2);
+
+}while(rehacer==2);
     if(muerte=1)
     {
 	printf("Has muerto, quieres volver a empezar?\n -1: Volver al menu\n -2: Salir del juego\n");
@@ -174,4 +180,5 @@ switch(menu)
     }
 
 return 0;
+
 }
