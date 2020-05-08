@@ -39,7 +39,7 @@ pe.atk=3;
 inv.espada=0;
 mo.atkmons=2;
 pe.hpactual=combate(&pe,&mo,&inv);
-printf("Salud :%d Pociones: %d\n",pe.hpactual, inv.pociones);
+printf("%d",pe.hpactual);
 system("PAUSE");
 return 0;
 }
@@ -48,6 +48,8 @@ int combate (Personaje *pe, Enemigo *mo, Inventario *inv)
 int n;
 	do
 	{
+	  do
+	  {
 		do
 		{
 	       printf("Pulsa 1 para atacar, 2 para usar una pocion\n");
@@ -62,7 +64,6 @@ int n;
 	       if((*mo).hpactualmons==0)
 	       {
 	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n");
-	       return((*pe).hpactual);
            }
            else
            {
@@ -70,10 +71,8 @@ int n;
            if((*pe).hpactual==0)
            {
       	   printf("Has sido derrotado");
-	   return((*pe).hpactual);
 	       }
 	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
-	       
 	       }
         } break;   
 	    case 2:
@@ -89,7 +88,7 @@ int n;
 	       printf("No te quedan pociones\n");
         }
         }
-      	
-	} while((*pe).hpactual!=0 || (*mo).hpactualmons!=0);
-
+      } while ((*inv).pociones==0 && n==2);	
+	} while((*pe).hpactual>0 && (*mo).hpactualmons>0);
+	return (*pe).hpactual;
 }
