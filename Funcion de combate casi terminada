@@ -18,7 +18,6 @@ typedef struct
 	int atk;
 	int hp; 
 	int hpactual;
-	Inventario inv;
 } Personaje;
 typedef struct
 {
@@ -27,16 +26,25 @@ typedef struct
 	int hpmons;
 	int hpactualmons;
 } Enemigo;
+int combate (Personaje *pe, Enemigo *mo, Inventario *inv);
 int main(void)
 {
 Personaje pe;
 Enemigo mo;
-pe.inv.pociones=1;
+Inventario inv;
+inv.pociones=1;
 pe.hp=pe.hpactual=15;
 mo.hpactualmons=15;
 pe.atk=3;
-pe.inv.espada=0;
+inv.espada=0;
 mo.atkmons=2;
+pe.hpactual=combate(&pe,&mo,&inv);
+printf("%d",pe.hpactual);
+system("PAUSE");
+return 0;
+}
+int combate (Personaje *pe, Enemigo *mo, Inventario *inv)
+{
 int n;
 	do
 	{
@@ -52,36 +60,35 @@ int n;
 	    {
 	    case 1:
 	    {
-	       mo.hpactualmons=mo.hpactualmons-pe.atk-pe.inv.espada;
-	       if(mo.hpactualmons==0)
+	       (*mo).hpactualmons=(*mo).hpactualmons-(*pe).atk-(*inv).espada;
+	       if((*mo).hpactualmons==0)
 	       {
 	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n");
            }
            else
            {
-           pe.hpactual=pe.hpactual-mo.atkmons;
-           if(pe.hpactual==0)
+           (*pe).hpactual=(*pe).hpactual-(*mo).atkmons;
+           if((*pe).hpactual==0)
            {
       	   printf("Has sido derrotado");
 	       }
-	       printf("Vida actual: %d Vida del enemigo %d\n",pe.hpactual,mo.hpactualmons);
+	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
 	       }
         } break;   
 	    case 2:
 	    {
-		   if(pe.inv.pociones!=0)
+		   if((*inv).pociones!=0)
 		   {
-	       pe.hpactual=pe.hpactual+10;
-	       pe.inv.pociones--;
-	       pe.hpactual=pe.hpactual-mo.atkmons;
-	       printf("Vida actual: %d Vida del enemigo %d\n",pe.hpactual,mo.hpactualmons);
+	       (*pe).hpactual=(*pe).hpactual+10;
+	       (*inv).pociones--;
+	       (*pe).hpactual=(*pe).hpactual-(*mo).atkmons;
+	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
 	       }
 	       else
 	       printf("No te quedan pociones\n");
         }
         }
-      } while (pe.inv.pociones==0 && n==2);	
-	} while(pe.hpactual!=0 || mo.hpactualmons!=0);
-system("PAUSE");
-return 0;
+      } while ((*inv).pociones==0 && n==2);	
+	} while((*pe).hpactual!=0 || (*mo).hpactualmons!=0);
+	return (*pe).hpactual;
 }
