@@ -24,9 +24,16 @@ typedef struct
 	int atk;
 	int hp; 
 	int hpactual;
-	int def;
 	Inventario inv;
 } Personaje;
+//Stats del enemigo
+typedef struct
+{
+	char nombre[LONG];
+	int atkmons;
+	int hpmons;
+	int hpactualmons;
+} Enemigo;
 //LLAMADA A LAS STATS: stats(pers.hp,pers.atk,pers.def,inv.dinero);
 int stats(int salud, int saludtemporal, int fuerza, int defensa, int dinero)
 {
@@ -41,8 +48,7 @@ int opcion;
 int pista;
 printf("\n\n Te despiertas en una cueva a oscuras...\n ¿Que haces?\n -1 Inspeccionar los alrededores\n -2 Buscar una salida\n-3 MENU\n");
 			
-		do{
-			
+		do{	
 			scanf("%i",&opcion);
 			if(opcion==1)
 			{
@@ -56,7 +62,6 @@ printf("\n\n Te despiertas en una cueva a oscuras...\n ¿Que haces?\n -1 Inspecc
 			printf(" y no parece que puedas escalar para salir por donde caiste");
 			printf(", por lo que decides avanzar por la cueva\n");
 			}
-
 			}while(opcion!=3);
 menuopciones();
 }
@@ -72,8 +77,7 @@ int menuopciones(void)
 	if(sel==2)
 	//inven(); funcion inventario
 	if(sel==3)
-	exit(0);
-	
+	exit(0);	
 }
 int main(void)
 {
@@ -82,14 +86,11 @@ Inventario inv;
 Personaje pers;	
 char menu,menunum;
 int rehacer, pista, muerte=0;
-
-
 system("cls");
 printf("MENU, ELIGE :\n 1-Empezar partida\n 2-Salir del juego\n");
 scanf("%c",&menu);
 do
 {
-
 switch(menu)
 {
     case '1':
@@ -106,18 +107,15 @@ switch(menu)
     			pers.atk=6;
     			pers.hp=35;
     			pers.hpactual=35;
-    			pers.def=6;
-    			
+    			pers.def=6;	
     			printf("Has elegido al Guerrero\nAtaque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
 			}
-    	
 		else if(menunum=='2')
 			{
 				pers.atk=15;
     			pers.hp=20;
     			pers.hpactual=20;
     			pers.def=6;
-    			
     			printf("Has elegido al Barbaro\nAtaque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
 			}
 		else if(menunum=='3')	
@@ -125,8 +123,7 @@ switch(menu)
 				pers.atk=6;
     			pers.hp=20;
     			pers.hpactual=20;
-    			pers.def=15;
-				
+    		    pers.def=15;	
 				printf("Has elegido al Guardian\nAtaque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
 			}
 		else if(menunum=='4')
@@ -134,8 +131,7 @@ switch(menu)
 				pers.atk=10;
     			pers.hp=27;
     			pers.hpactual=27;
-    			pers.def=10;
-    			
+    			pers.def=10;	
     			printf("Has elegido al Caballero\nAtaque: %i   Salud: %i    Defensa: %i\n",pers.atk,pers.hp,pers.def);
 			}
 	printf("-1 Comenzar aventura\n-2 Volver al menu para cambiar personaje\n");
@@ -146,29 +142,23 @@ switch(menu)
 		{	
 			inv.dinero=0;
 			stats(pers.hp, pers.hpactual,pers.atk,pers.def,inv.dinero);
-			
 			escena();
 			if(options.salida==0)
 			exit(0);
 		}
-			while(0<menunum<5);
-		
+			while(0<menunum<5);	
 	}
 }
 	break;
-    
     case '2':
     {
     printf("¡Hasta la proxima!");
     exit(0);
     } break;
     default:
-    
     {	
     } break;
-
 }
-
 }while(rehacer==2);
     if(muerte=1)
     {
@@ -178,7 +168,5 @@ switch(menu)
     	if(menunum==1)
     	main();
     }
-
 return 0;
-
 }
