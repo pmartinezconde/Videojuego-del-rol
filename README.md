@@ -13,7 +13,7 @@ Diseñar el código que definirá al personaje, a los enemigos y sus propiedades
 
 Diseñar una historia para el juego.
 
-Diseñar un sistema de turnos.
+Diseñar un sistema de combate con uso de items.
 
 Diseñar un sistema de inventario y varios objetos que puedas obtener a lo largo del juego.
 
