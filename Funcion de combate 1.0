@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct
+{
+	int espada;
+	char nombespada;
+	int armadura; 
+	char nombarmadura;
+	int escudo;
+	char nombescudo;
+	int dinero;
+	int pociones;
+} Inventario;
+typedef struct
+{
+	char nombre[LONG];
+	int atk;
+	int hp; 
+	int hpactual;
+	int def;
+	Inventario inv;
+} Personaje;
+typedef struct
+{
+	char nombre[LONG];
+	int atkmons;
+	int hpmons;
+	int hpactualmons;
+} Enemigo;
+int main(void)
+{
+Personaje pe;
+Enemigo mo;
+int n;
+{
+	do
+	{
+		do
+		{
+	    printf("Pulsa 1 para atacar, 2 para usar una pocion\n");
+	    scanf("%d",&n);
+	    if(n==1);
+	    {
+	       mo.hpactualmons=mo.hpactualmons-pe.atk-pe.inv.espada;
+	       if(mo.hpactualmons==0)
+	       {
+	       printf("¡¡¡¡Has ganado el conbate enhorabuena!!!!");
+           }
+           pe.hpactual=pe.hpactual-mo.atkmons;
+           if(pe.hpactual==0)
+           {
+      	   printf("Has sido derrotado");
+	       }
+        }   
+	    if(n==2)
+	    {
+		   if(pe.inv.posciones!=0)
+		   {
+	       pe.hpactual=pe.hpactual+10;
+	       pociones=pociones-1;
+	       pe.hpactual=pe.hpactual-mo.atkmons;
+	       }
+	    else
+	       printf("No te quedan pociones");
+        }
+        } while (pe.inv.pociones==0 && n==2)	
+	} while(pe.hpactual!=0 || mo.hpactualmons!=0)
+}
