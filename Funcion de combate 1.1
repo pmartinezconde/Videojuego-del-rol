@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define LONG 16
 typedef struct
 {
 	int espada;
@@ -32,39 +33,55 @@ Personaje pe;
 Enemigo mo;
 pe.inv.pociones=1;
 pe.hp=pe.hpactual=15;
-pe.def
+mo.hpactualmons=15;
+pe.atk=3;
+pe.inv.espada=0;
+mo.atkmons=2;
 int n;
-{
 	do
 	{
+	  do
+	  {
 		do
 		{
-	    printf("Pulsa 1 para atacar, 2 para usar una pocion\n");
-	    scanf("%d",&n);
-	    if(n==1);
+	       printf("Pulsa 1 para atacar, 2 para usar una pocion\n");
+	       scanf("%d",&n);
+	       fflush(stdin);
+	    } while(n!=1 && n!=2);
+	    switch (n)
+	    {
+	    case 1:
 	    {
 	       mo.hpactualmons=mo.hpactualmons-pe.atk-pe.inv.espada;
 	       if(mo.hpactualmons==0)
 	       {
-	       printf("¡¡¡¡Has ganado el conbate enhorabuena!!!!");
+	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n");
            }
+           else
+           {
            pe.hpactual=pe.hpactual-mo.atkmons;
            if(pe.hpactual==0)
            {
       	   printf("Has sido derrotado");
 	       }
-        }   
-	    if(n==2)
+	       printf("Vida actual: %d Vida del enemigo %d\n",pe.hpactual,mo.hpactualmons);
+	       }
+        } break;   
+	    case 2:
 	    {
-		   if(pe.inv.posciones!=0)
+		   if(pe.inv.pociones!=0)
 		   {
 	       pe.hpactual=pe.hpactual+10;
-	       pociones=pociones-1;
+	       pe.inv.pociones--;
 	       pe.hpactual=pe.hpactual-mo.atkmons;
+	       printf("Vida actual: %d Vida del enemigo %d\n",pe.hpactual,mo.hpactualmons);
 	       }
-	    else
-	       printf("No te quedan pociones");
+	       else
+	       printf("No te quedan pociones\n");
         }
-        } while (pe.inv.pociones==0 && n==2)	
-	} while(pe.hpactual!=0 || mo.hpactualmons!=0)
+        }
+      } while (pe.inv.pociones==0 && n==2);	
+	} while(pe.hpactual!=0 || mo.hpactualmons!=0);
+system("PAUSE");
+return 0;
 }
