@@ -63,14 +63,14 @@ int n;
 	       (*mo).hpactualmons=(*mo).hpactualmons-(*pe).atk-(*inv).espada;
 	       if((*mo).hpactualmons==0)
 	       {
-	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n");
+	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n\n");
            }
            else
            {
            (*pe).hpactual=(*pe).hpactual-(*mo).atkmons;
            if((*pe).hpactual==0)
            {
-      	   printf("Has sido derrotado");
+      	   printf("Has sido derrotado\n\n");
 	       }
 	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
 	       }
