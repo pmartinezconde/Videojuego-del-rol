@@ -17,7 +17,6 @@ typedef struct
 	int atk;
 	int hp; 
 	int hpactual;
-	int def;
 	Inventario inv;
 } Personaje;
 typedef struct
@@ -31,6 +30,9 @@ int main(void)
 {
 Personaje pe;
 Enemigo mo;
+pe.inv.pociones=1;
+pe.hp=pe.hpactual=15;
+pe.def
 int n;
 {
 	do
