@@ -1,0 +1,644 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define LONG 16
+
+typedef struct
+{
+int espada;
+int armadura; 
+int escudo;
+int dinero;
+int pociones;
+}Inventario;
+typedef struct
+	{
+char nombre[LONG];
+int atk;
+int hp; 
+int hpactual;
+	}Personaje;
+typedef struct
+	{
+char nombre[LONG];
+int atkmons;
+int hpmons;
+int hpactualmons;
+int loot;
+	}Enemigo;
+typedef struct
+	{
+int pista1;
+int pista2;
+int pista3;
+	}Pistas;
+//FUNCION COMBATE
+int combate (Personaje *pe, Enemigo *mo, Inventario *inv)
+{
+int n;
+	do
+	{
+	  do
+	  {
+		do
+		{
+	       printf("Pulsa 1 para atacar, 2 para usar una pocion\n");
+	       scanf("%d",&n);
+	       fflush(stdin);
+	    } while(n!=1 && n!=2);
+	    switch (n)
+	    {
+	    case 1:
+	    {
+	       (*mo).hpactualmons=(*mo).hpactualmons-(*pe).atk-(*inv).espada;
+	       if((*mo).hpactualmons==0)
+	       {
+	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n\n");
+           }
+           else
+           {
+           (*pe).hpactual=(*pe).hpactual-(*mo).atkmons;
+           if((*pe).hpactual<=0)
+           {
+      	   (*pe).hpactual=0;
+			printf("Has sido derrotado\n\n");
+	       }
+	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
+	       }
+        } break;   
+	    case 2:
+	    {
+		   if((*inv).pociones!=0)
+		   {
+	       (*pe).hpactual=(*pe).hpactual+10;
+	       (*inv).pociones--;
+	       (*pe).hpactual=(*pe).hpactual-(*mo).atkmons;
+	       printf("Vida actual: %d Vida del enemigo %d\n",(*pe).hpactual,(*mo).hpactualmons);
+	       }
+	       else
+	       printf("No te quedan pociones\n");
+        }
+        }
+      } while ((*inv).pociones==0 && n==2);	
+	} while((*pe).hpactual>0 && (*mo).hpactualmons>0);
+	return (*pe).hpactual;
+}	
+//FUNCION MENU
+int menu (Personaje *pe, Inventario *inv)
+{
+	int dif;
+	char decis;
+	char sel;
+	do
+	{
+	do
+	{
+	system("cls");
+	printf("-1 Volver\n-2 Inventario\n-3 Salir del juego\n");
+	scanf("%c",&sel);
+	if(sel=='1')
+	return 0;
+	if(sel=='4')
+	return 0;
+	
+	}
+	while(sel!='2'&&sel!='3');
+	if(sel=='2')
+		{
+	
+	system("cls");
+	printf("|Salud: %i / %i  Fuerza: %i|  Dinero: %i\n\n\n", (*pe).hpactual, (*pe).hp, (*pe).atk, (*inv).dinero);
+		//ESPADAS
+		printf("Espada: ");
+		if((*inv).espada==0)
+		printf("Ninguna\n");
+		if((*inv).espada==2)
+		printf("Espada rota\n");
+		if((*inv).espada==4)
+		printf("Espada de hierro\n");
+		if((*inv).espada==6)
+		printf("Espada bastarda\n");
+		//ESCUDOS
+		printf("\nEscudo: ");
+		if((*inv).escudo==0)
+		printf("Ninguno\n");
+		if((*inv).escudo==2)
+		printf("Broquel viejo\n");
+		if((*inv).escudo==4)
+		printf("Rodela\n");
+		if((*inv).escudo==6)
+		printf("Escudo de lagrima\n");
+		//ARMADURAS
+		printf("\nArmadura: ");
+		if((*inv).armadura==0)
+		printf("Ninguna\n");
+		if((*inv).armadura==3)
+		printf("Ropa acolchada\n");
+		if((*inv).armadura==6)
+		printf("Pechera de cuero\n");
+		if((*inv).armadura==10)
+		printf("Cota de malla\n");
+		printf("\nPociones: %i",(*inv).pociones);
+		printf("\n\n Quieres usar una pocion?\n-1: Si\n-2: No\n");
+		do
+		scanf("%c",&decis);
+		while(decis!='1'&&decis!='2');
+		if(decis=='1')
+		{
+			if((*inv).pociones!=0)
+		   {
+	       if((*pe).hpactual==(*pe).hp)
+	       printf("Tu salud esta al maximo\n");
+	       if((*pe).hpactual<((*pe).hp))
+	       {
+	       (*inv).pociones--;
+	   		dif=(*pe).hp-(*pe).hpactual;
+	   		if(dif<10)
+	   		(*pe).hpactual=(*pe).hp;
+	   		else
+	   		(*pe).hpactual=(*pe).hpactual+10;
+			}
+		   printf("Vida actual: %d \n",(*pe).hpactual);
+		   system("pause");
+	       }
+	       else{
+	       printf("No te quedan pociones\n");
+	   		system("pause");
+			   }
+		}
+	
+		}
+	if(sel=='3')
+	return 1000;
+	}while(sel!='1');
+}	
+//FUNCION ESCENA
+int escena (Personaje *pe, Enemigo *mo,Inventario *inv, Pistas *pi, int situacion)
+{
+int salidamenu,volver, num_random,recoger, escudo;
+	char decision,salir,huevo;
+if(situacion==251)
+{
+	do
+	{
+	(*inv).armadura=0;
+	(*inv).escudo=0;
+	(*inv).espada=0;
+	(*inv).pociones=0;
+	(*inv).dinero=0;
+	system("cls");
+	if(volver==0);
+	printf("Abres los ojos, y lo primero que observas es la reinante oscuridad en tu entorno.\n");
+	printf("\nPor mucho que lo intentas no recuerdas quien eres ni que haces en una cueva como esta\nQue haces?\n-1: Inspeccionar el terreno\n-2: Buscar una salida\n-3: MENU\n\n");
+	do
+	{
+	scanf("%c",&decision);
+
+	if(decision=='1')
+		{
+	printf("Observas que hay una luz sobre tu cabeza\nAl mirar hacia arriba ves como esta a mucha altura, parece ser la luz del sol pasando por una grieta...\nDeduces que has caido por ahi, al ver varios escombros a tu alrededor\nTras acostumbrarte a la oscuridad de la sala, ves como la cueva sigue hacia delante\n");
+	(*pi).pista1=1;
+		}	
+	if(decision=='3')
+	{
+	return 5600;
+	}
+	}while(decision!='2');
+if((*pi).pista1=1)
+printf("Ves con cierta claridad que las paredes de la cueva no se acaban al frente, habiendo un camino\n\n-1: Adentrarse en el camino\n-2:Volver");
+else
+printf("A tu frente solo hay oscuridad, pero no se te ocurre ninguna opcion mejor\n\n-1: Adentrarse en la oscuridad\n-2:Volver");
+do
+scanf("%c",&salir);
+while(salir!='1'&&salir!='2');
+if(salir=='2')
+volver=1;
+}while(salir!='1');
+printf("Te adentras en el pasadizo que hay ante tus ojos con la esperanza de encontrar alguna salida\n\n");
+system("pause");
+system("cls");
+return 252;
+}
+if(situacion==252)
+{
+(*mo).atkmons=4;
+(*mo).hpmons=12;
+(*mo).hpactualmons=12;
+
+printf("Al avanzar por la cueva, ves una luz\nAl acercarte ves un duende con una antorcha, el cual al verte chilla y te ataca sin pensarselo dos veces\n\n");
+system("Pause");
+system("cls");
+return 2520;
+}
+if(situacion==2520)
+{
+(*pi).pista1=0;
+(*pi).pista2=0;
+if((*pi).pista3!=1)
+{
+printf("Tras matar al duende, suelta su arma, una espada rota\nLa recoges?\n\n-1: Si\n-2: No\n\n");
+
+do
+scanf("%c",&decision);
+while(decision!='1'&&decision!='2');
+if(decision=='1')
+(*inv).espada=2;
+(*pi).pista3=1;
+}
+do
+{
+do
+{
+system("cls");
+printf("Las brasas de la antorcha iluminan ligeramente la instancia\nQue haces?\n\n-1:Examinar el cadaver del duende\n-2:Examinar la sala\n-3:Seguir avanzando\n-4:MENU\n\n");	
+
+scanf("%c",&decision);
+if(decision=='1')
+{
+printf("Observas que el duende estaba cubierto por telas mugrientas, pero la espada que tenia, a pesar de estar rota y oxidada, estaba bien hecha\nLa habra encontrado mas adelante?\nTras ver esto cada vez te intriga mas donde estas\n\n");
+system("pause");}
+if(decision=='2')
+{
+if((*pi).pista2==0)
+{
+	//randomizador
+srand (time(NULL));
+num_random=rand()%11;
+(*pi).pista2=1;
+if(num_random<6)
+{
+printf("Encuentras 5 monedas\n");
+(*inv).dinero=(*inv).dinero+5;
+}
+}
+printf("Con la tenue luz de las brasas logras ver como las paredes estan pasando de ser roca desnuda a ladrillos, segun se avanza por la cueva\n\n");
+system("pause");
+}
+if(decision=='4')
+return 5600;
+}while(decision!='3');
+printf("Sigues avanzando por la cueva?\n\n-1: Si\n-2: No\n");
+do
+scanf("%c",&salir);
+while(salir!='1'&&salir!='2');
+}while(salir!='1');
+printf("Sigues avanzando por la cueva, y empiezas a vislumbrar una construccion que parece hecha por el hombre...\n\n");
+system("pause");
+(*pi).pista1=0;
+(*pi).pista2=0;
+(*pi).pista3=0;
+return 253;
+}
+if(situacion==253)
+{
+do
+{
+do
+{
+fflush(stdin);
+system("cls");
+printf("Llegas a una sala, y ves que hay dos caminos posibles, uno por el que viene luz y otro que esta a oscuras.\nQue haces?\n\n-1: Examinar la sala\n-2 Ir al camino iluminado\n-3: Ir por el camino sin iluminar\n-4: MENU\n\n");
+
+scanf("%c",&decision);
+
+if(decision=='1')
+{
+    if(recoger!=1)
+	{
+	(*inv).pociones=(*inv).pociones+2;
+	printf("Tras buscar por la sala encuentras cubiertos por unos trapos dos frascos con un liquido rojo brillante\n\nHas obtenido 2 pociones!\n");
+	recoger=1;
+	}
+	printf("La sala esta hecha completamente de ladrillos\nLa unica fuente de iluminacion es la proveniente del primer camino, cuya entrada se asemeja a un porton\n");
+	system("pause");
+	system("cls");
+}
+if(decision=='3')
+{
+system("cls");
+return 254;
+}
+if(decision=='4')
+return 5600;
+}
+while(decision!='2');
+
+system("cls");
+printf("Cruzas el porton?\n\n-1: Si\n-2: Volver\n");
+do
+scanf("%c",&salir);
+while(salir!='1'&&salir!='2');
+}while(salir!='1');
+
+printf("Cruzas el porton, y ves como el camino se separa en dos pasillos, ambos iluminados\n\n");
+system("pause");
+(*pi).pista1=0;
+(*pi).pista2=0;
+(*pi).pista3=0;
+return 255;
+}
+if(situacion==255)
+{
+
+if(escudo!=1){
+printf("Te encuentras en la pared apoyado un escudo, lo recoges?\n\n-1: Si\n-2:No\n");
+do
+scanf("%c",&decision);
+while(decision!='1'&&decision!='2');
+if(decision=='1')
+(*inv).escudo=2;
+if(decision=='2')
+printf("Ignoras el escudo y sigues tu camino\n\n");
+escudo=1;
+}
+system("pause");
+system("cls");
+printf("Tienes ante ti dos caminos, cual escoges?\n\n-1: Izquierda\n-2: Derecha\n-3: MENU\n");
+char elec;
+do
+{
+scanf("%c",&elec);
+if(elec=='3')
+return 5600;
+if(elec=='1')
+return 257;
+if(elec=='2')
+return 1;
+}while(elec!='p');
+
+
+}
+
+if(situacion==0)
+{
+printf("Al final del pasillo encuentras una sala con los restos de un campamento reciente\nPor los materiales de la unica tienda presente deduces que era del duende que encontraste antes\n");
+
+if(recoger!=0)
+{
+
+printf("\n\nRevisando el campamento encuentras unas monedas y una pieza de armadura\n\n-1: Recoger\n-2: Ignorar\n\n");
+do
+scanf("%c",&decision);
+while(decision!='1'&&decision!='2');
+if(decision=='1')
+(*inv).armadura=3;
+if(decision=='2')
+printf("Ignoras lo que encuentras\n");
+recoger=1;
+}
+printf("Quieres aprovechar para descansar aqui?\n\n-1: Si\n-2: No\n-3: MENU\n");
+do
+{
+scanf("%c",&decision);
+if(decision=='3')
+return 5600;
+}
+while(decision!='1'&&decision!='2');
+if(decision=='1')
+{
+(*pe).hpactual=(*pe).hp;
+return 258;
+}
+if(decision=='2')
+return 258;
+}
+
+
+if(situacion==257)
+	{
+system("cls");
+printf("Al entrar a la sala, observas que hay en un muro unas placas con nombres\nPero desde donde estas no puedes leerlos bien\n\nAparte de eso, ves como al frente el camino sigue\nQue haces?\n\n-1: Acercarse al muro\n-2: Ir a la siguiente sala\n-3: MENU\n");
+system("pause");
+do
+{
+	if(salidamenu==5)
+	printf("Que haces?\n\n-1: Acercarse al muro\n-2: Ir a la siguiente sala\n-3: MENU\n");
+	scanf("%c",&decision);
+	if(decision=='1')
+	{
+		printf("Al acercarte ves que la mayoria de las placas estan ilegibles, pero consigues leer unas pocas:\n\n-Pablo Martinez-Conde. Escritor: Murio de agotamiento tras escribir todas las escenasde una obra de teatro de un amnesico en unas ruinas\n\n-Miguel Angel Pascual. Coreografo: Murio al tropezarse y darse en la cabeza mientras pensaba la coreografia de la pelea de la obra\n\n");
+		printf("Que quieres hacer?\n\n-1: Acercarte mas a las placas\n-2: Volver donde antes\n\n");	
+		do
+		scanf("%c",&huevo);
+		while(huevo!='1'&&huevo!='2');
+		if(huevo=='1')
+		{
+			system("cls");
+			printf("Como si fueras atraido por una fuerza sobrenatural, te acercas aun mas a estas placas\n");
+			system("pause");
+			printf("\nCuando te decides a tocar una de estas aparece un texto en el muro:\n\n\n|UPM|\n-Union\nPolifacetica\nde\nMazmorras\n\n\nEntonces, el texto comienza a brillar, y cuando te das cuenta te despiertas\nY te acuerdas de que no estabas en una mazmorra, sino en tu casa encerrado por otras razones y que tenias que entregar un trabajo en 2 horas\n\n");
+			system("pause");
+			system("cls");
+			printf("\nFINAL MALO EXTRA:   |FECHA DE ENTREGA|\n\n");
+			
+			return 260;
+		}
+	salidamenu=5;	
+	}
+	if(decision=='3')
+	return 5600;
+}
+while(decision!='2');
+if(decision=='2')
+return 258;
+	}
+if(situacion==258)
+{
+(*mo).atkmons=7;
+(*mo).hpactualmons=35;
+(*mo).hpmons=35;
+printf("Llegas a una zona muy amplia y ves al fondo unas escaleras\nPero en cuanto te acercas, sube por estas un trasgo, el cual en cuanto descubre que estas ahi, carga hacia ti\n\n");
+system("pause");
+return 2580;
+}
+if(situacion==2580)
+{
+system("cls");
+printf("Tras derrotar al trasgo, te paras a observar la sala, y te fijas en como esta cubierta de simbolos peculiares\nY todos estos parecen converger en las escaleras que hay al frente\nQue haces?\n\n-1: Bajar las escaleras\n-2: MENU\n");
+do
+{
+scanf("%c",&decision);
+
+if(decision=='1')
+return 259;
+if(decision=='2')
+return 5600;
+}while(decision!='1'&&decision!='2');
+}
+if(situacion==259)
+{
+	printf("Enhorabuena! Has completado la version de prueba\n\n");
+	printf("||Proyecto hecho por Pablo Martinez-Conde y Miguel Angel Pascual||\n\n");
+	system("pause");
+	return 260;
+}
+
+}
+	
+	
+int escena (Personaje *pe,Enemigo *mo, Inventario *inv, Pistas *pi,int situacion);
+int combate (Personaje *pe, Enemigo *mo, Inventario *inv);
+int menu (Personaje *pe, Inventario *inv);
+
+int main(void)
+{
+Personaje pe;
+Enemigo mo;
+Inventario inv;
+Pistas pi;
+char menuinicio, menunum,rehacer,restart;
+int muerte, salidaescena, esactual;
+int pocion=4000;
+int i;
+	
+			do
+			{
+				system("cls");
+				printf("MENU, ELIGE :\n 1-Empezar partida\n 2-Salir del juego\n");
+				scanf("%c",&menuinicio);
+				fflush(stdin);
+			}while(menuinicio!='1'&&menuinicio!='2');
+		if(menuinicio=='1')
+		
+		{
+			
+			printf("Bienvenido\n");
+	do{
+	//reinicio de inventario en caso de morir y volver a jugar
+		restart='0';
+	do{
+		system("cls");
+		//CREACION DE PERSONAJE
+    		printf("Introduzca el nombre del personaje(15 caracteres maximo):\n");
+    		fflush(stdin);
+    		gets(pe.nombre);   
+   			printf("Elige la clase de tu personaje: \n 1-Guardian\n 2-Barbaro\n 3-Caballero\n -El guardian ha sobrevivido multiples batallas, teniendo un cuerpo resistente\n-El barbaro aprovecha su fuerza natural para atacar a sus enemigos\n-El caballero ha entrenado en varias artes, siendo un personaje equilibrado\n\n");
+    			do		
+					scanf("%c",&menunum);
+    			while(menunum!='1'&&menunum!='2'&&menunum!='3');
+    				if(menunum=='1')
+    				{	
+    					pe.atk=6;
+    					pe.hp=35;
+    					pe.hpactual=35;
+    					printf("Has elegido al Guardian\nAtaque: %i   Salud: %i\n",pe.atk,pe.hp);
+					}
+					else if(menunum=='2')
+					{
+						pe.atk=12;
+    					pe.hp=20;
+    					pe.hpactual=20;
+    					printf("Has elegido al Barbaro\nAtaque: %i   Salud: %i\n",pe.atk,pe.hp);
+					}
+					else if(menunum=='3')
+					{
+						pe.atk=9;
+    					pe.hp=27;
+    					pe.hpactual=27;
+    					printf("Has elegido al Caballero\nAtaque: %i   Salud: %i\n",pe.atk,pe.hp);
+					}
+		printf("Estas seguro?\n-1: Si, empezar partida\n-2: No, volver a la seleccion de personaje\n");
+			do
+				{
+					scanf("%c",&rehacer);
+					fflush(stdin);
+				}
+				while(rehacer!='1'&&rehacer!='2');
+		}
+		while(rehacer!='1');
+		
+		if(rehacer=='1')
+		{	
+			muerte=0;
+			esactual=251;
+		}
+		do
+		{
+			salidaescena=escena(&pe,&mo,&inv,&pi,esactual);
+			if(salidaescena==1)
+			{
+				printf("coño ya");
+				system("pause");
+				salidaescena=escena(&pe,&mo,&inv,&pi,0);
+		}
+			if(salidaescena==5600)
+			salidaescena=menu(&pe,&inv);
+		
+			//ESCENAS
+			if(salidaescena==1000)
+			{
+			printf("Hasta la proxima!\n");
+			system("pause");
+			return 0;
+			}
+			if(salidaescena==252)
+			esactual=252;
+			if(salidaescena==2520)
+			{
+			pe.hpactual=combate(&pe,&mo,&inv);
+			if(pe.hpactual>0)
+			esactual=2520;
+			else
+			muerte=1;
+			}
+			if(salidaescena==253)
+			esactual=253;
+			if(salidaescena==254)
+			{
+				muerte=1;
+				printf("Tras adentrarte en el camino a oscuras, te tropiezas y caes por un foso, muriendo por la caida\n\n");
+				printf("\n\n\nFINAL MALO  |MIRA POR DONDE ANDAS|\n\n");
+				system("pause");
+			}
+			if(salidaescena==255)
+			esactual=255;
+			if(salidaescena==257)
+			esactual=257;
+			if(salidaescena==258)
+			{
+			salidaescena=escena(&pe,&mo,&inv,&pi,258);
+			}
+			if(salidaescena==2580)
+			{
+			pe.hpactual=combate(&pe,&mo,&inv);
+			if(pe.hpactual>0)
+			esactual=2580;
+			else
+			muerte=1;
+			}
+			if(salidaescena==259)
+			salidaescena=escena(&pe,&mo,&inv,&pi,259);
+			if(salidaescena==260)
+			muerte=1;
+			
+//-----------------------------------------------			
+		}
+		while(muerte==0);
+if(muerte==1)
+{
+	restart=0;
+	system("pause");
+	system("cls");
+	printf("\n\nQuieres volver a jugar?\n-1 Si\n-2 No, salir del juego\n");
+	fflush(stdin);
+	scanf("%c",&restart);
+	
+}
+
+}
+while(restart=='1');
+}
+		
+else if(menuinicio=='2')
+	{
+	printf("Hasta la proxima!\n");
+	return 0;	
+	}	
+	
+	
+ 
+ 
+ 
+return 0;
+}
+	
