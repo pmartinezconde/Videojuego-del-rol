@@ -17,8 +17,8 @@ Diseñar un sistema de combate con uso de items.
 
 Diseñar un sistema de inventario y varios objetos que puedas obtener a lo largo del juego.
 
-Darle jugabilidad y sensación de que el jugador progresa con mecánicas como la subida de nivel y el poder elegir que estadísticas quiere mejorar el jugador al subir de nivel.
+Darle jugabilidad y sensación de progreso.
 ## Hardware
 Ordenador
 ## Software
-C++
+C
