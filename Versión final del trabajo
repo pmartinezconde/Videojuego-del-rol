@@ -51,7 +51,7 @@ int n;
 	    case 1:
 	    {
 	       (*mo).hpactualmons=(*mo).hpactualmons-(*pe).atk-(*inv).espada;
-	       if((*mo).hpactualmons==0)
+	       if((*mo).hpactualmons<=0)
 	       {
 	       printf("!!!!Has ganado el conbate enhorabuena!!!!\n\n");
            }
@@ -186,7 +186,7 @@ if(situacion==251)
 	system("cls");
 	if(volver==0);
 	printf("Abres los ojos, lo primero que observas es la reinante oscuridad en tu entorno.\n");
-	printf("\nPor mucho que lo intentas no recuerdas quien eres ni que haces en una cueva como esta\nQue haces?\n-1: Inspeccionar el terreno\n-2: Buscar una salida\n-3: MENU\n\n");
+	printf("Por mucho que lo intentas no recuerdas quien eres ni que haces en una cueva como esta\nQue haces?\n-1: Inspeccionar el terreno\n-2: Buscar una salida\n-3: MENU\n");
 	do
 	{
 	scanf("%c",&decision);
@@ -202,7 +202,7 @@ if(situacion==251)
 	}
 	}while(decision!='2');
 if((*pi).pista1=1)
-printf("Ves con cierta claridad que las paredes de la cueva no se acaban al frente, habiendo un camino\n\n-1: Adentrarse en el camino\n-2:Volver");
+printf("Ves con cierta claridad que las paredes de la cueva no se acaban al frente, habiendo un camino\n-1:Adentrarse en el camino\n-2:Volver\n");
 else
 printf("A tu frente solo hay oscuridad, pero no se te ocurre ninguna opcion mejor\n\n-1: Adentrarse en la oscuridad\n-2:Volver");
 do
