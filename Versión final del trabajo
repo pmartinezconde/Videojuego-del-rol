@@ -276,7 +276,7 @@ do
 scanf("%c",&salir);
 while(salir!='1'&&salir!='2');
 }while(salir!='1');
-printf("Sigues avanzando por la cueva, y empiezas a vislumbrar una construccion que parece hecha por el hombre...\n\n");
+printf("Sigues avanzando por la cueva, y empiezas a vislumbrar una construccion que parece hecha por el hombre...\n");
 system("pause");
 (*pi).pista1=0;
 (*pi).pista2=0;
@@ -291,7 +291,7 @@ do
 {
 fflush(stdin);
 system("cls");
-printf("Llegas a una sala, y ves que hay dos caminos posibles, uno por el que viene luz y otro que esta a oscuras.\nQue haces?\n\n-1: Examinar la sala\n-2 Ir al camino iluminado\n-3: Ir por el camino sin iluminar\n-4: MENU\n\n");
+printf("Llegas a una sala, y ves que hay dos caminos posibles, uno por el que viene luz y otro que esta a oscuras.\nQue haces?\n\n-1: Examinar la sala\n-2: Ir al camino iluminado\n-3: Ir por el camino sin iluminar\n-4: MENU\n");
 
 scanf("%c",&decision);
 
@@ -591,7 +591,7 @@ if(muerte==1)
 	restart=0;
 	system("pause");
 	system("cls");
-	printf("\n\nQuieres volver a jugar?\n-1 Si\n-2 No, salir del juego\n");
+	printf("\nQuieres volver a jugar?\n-1 Si\n-2 No, salir del juego\n");
 	fflush(stdin);
 	scanf("%c",&restart);	
 }
