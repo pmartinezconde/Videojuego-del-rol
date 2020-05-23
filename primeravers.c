@@ -437,7 +437,7 @@ return 2580;
 if(situacion==2580)
 {
 system("cls");
-printf("Tras derrotar al trasgo, te paras a observar la sala, y te fijas en como esta cubierta de simbolos peculiares\nY todos estos parecen converger en las escaleras que hay al frente\nQue haces?\n\n-1: Bajar las escaleras\n-2: MENU\n");
+printf("Tras derrotar al trasgo, te paras a observar la sala, y te fijas en como esta cubierta de simbolos peculiares\nY todos estos parecen converger en las escaleras que hay al frente\nQue haces?\n\n-1: Subir las escaleras las escaleras\n-2: MENU\n");
 do
 {
 scanf("%c",&decision);
@@ -449,7 +449,7 @@ return 5600;
 }
 if(situacion==259)
 {
-	printf("Enhorabuena! Has completado la version de prueba\n\n");
+	printf("Tras un largo tramo de subida, empiezas a ver un destello de luz.\n Al salir te encuentras en un claro de un bosque, y ves un camino, lo sigues y llegas a un pueblo cuyos habitantes te reciben con los brazos abiertos.\n Has sobrevivido a la mazmorra y pro fin puedes descansar.\nEnhorabuena.\n");
 	printf("||Proyecto hecho por Pablo Martinez-Conde y Miguel Angel Pascual||\n\n");
 	system("pause");
 	return 260;
