@@ -317,7 +317,7 @@ return 5600;
 }
 while(decision!='2');
 system("cls");
-printf("Cruzas el porton?\n\n-1: Si\n-2: Volver\n");
+printf("Cruzas el porton?\n-1: Si\n-2: Volver\n");
 do
 scanf("%c",&salir);
 while(salir!='1'&&salir!='2');
@@ -332,7 +332,7 @@ return 255;
 if(situacion==255)
 {
 if(escudo!=1){
-printf("Te encuentras en la pared apoyado un escudo, lo recoges?\n\n-1: Si\n-2:No\n");
+printf("Te encuentras en la pared apoyado un escudo, lo recoges?\n-1: Si\n-2: No\n");
 do
 scanf("%c",&decision);
 while(decision!='1'&&decision!='2');
@@ -344,7 +344,7 @@ escudo=1;
 }
 system("pause");
 system("cls");
-printf("Tienes ante ti dos caminos, cual escoges?\n\n-1: Izquierda\n-2: Derecha\n-3: MENU\n");
+printf("Tienes ante ti dos caminos, cual escoges?\n-1: Izquierda\n-2: Derecha\n-3: MENU\n");
 char elec;
 do
 {
@@ -362,7 +362,7 @@ if(situacion==0)
 printf("Al final del pasillo encuentras una sala con los restos de un campamento reciente\nPor los materiales de la unica tienda presente deduces que era del duende que encontraste antes\n");
 if(recoger!=0)
 {
-printf("\n\nRevisando el campamento encuentras unas monedas y una pieza de armadura\n\n-1: Recoger\n-2: Ignorar\n\n");
+printf("\n\nRevisando el campamento encuentras unas monedas y una pieza de armadura\n-1: Recoger\n-2: Ignorar\n\n");
 do
 scanf("%c",&decision);
 while(decision!='1'&&decision!='2');
@@ -372,7 +372,7 @@ if(decision=='2')
 printf("Ignoras lo que encuentras\n");
 recoger=1;
 }
-printf("Quieres aprovechar para descansar aqui?\n\n-1: Si\n-2: No\n-3: MENU\n");
+printf("Quieres aprovechar para descansar aqui?\n-1: Si\n-2: No\n-3: MENU\n");
 do
 {
 scanf("%c",&decision);
@@ -400,8 +400,8 @@ do
 	scanf("%c",&decision);
 	if(decision=='1')
 	{
-		printf("Al acercarte ves que la mayoria de las placas estan ilegibles, pero consigues leer unas pocas:\n\n-Pablo Martinez-Conde. Escritor: Murio de agotamiento tras escribir todas las escenasde una obra de teatro de un amnesico en unas ruinas\n\n-Miguel Angel Pascual. Coreografo: Murio al tropezarse y darse en la cabeza mientras pensaba la coreografia de la pelea de la obra\n\n");
-		printf("Que quieres hacer?\n\n-1: Acercarte mas a las placas\n-2: Volver donde antes\n\n");	
+		printf("Al acercarte ves que la mayoria de las placas estan ilegibles, pero consigues leer unas pocas:\n-Pablo Martinez-Conde. Escritor: Murio de agotamiento tras escribir todas las escenas de una obra de teatro de un amnesico en unas ruinas\n\n-Miguel Angel Pascual. Coreografo: Murio al tropezarse y darse en la cabeza mientras pensaba la coreografia de la pelea de la obra\n");
+		printf("Que quieres hacer?\n-1: Acercarte mas a las placas\n-2: Volver donde antes\n\n");	
 		do
 		scanf("%c",&huevo);
 		while(huevo!='1'&&huevo!='2');
@@ -410,7 +410,7 @@ do
 			system("cls");
 			printf("Como si fueras atraido por una fuerza sobrenatural, te acercas aun mas a estas placas\n");
 			system("pause");
-			printf("\nCuando te decides a tocar una de estas aparece un texto en el muro:\n\n\n|UPM|\n-Union\nPolifacetica\nde\nMazmorras\n\n\nEntonces, el texto comienza a brillar, y cuando te das cuenta te despiertas\nY te acuerdas de que no estabas en una mazmorra, sino en tu casa encerrado por otras razones y que tenias que entregar un trabajo en 2 horas\n\n");
+			printf("Cuando te decides a tocar una de estas aparece un texto en el muro:\n\n\n|UPM|\n-Union\nPolifacetica\nde\nMazmorras\n\n\nEntonces, el texto comienza a brillar, y cuando te das cuenta te despiertas\nY te acuerdas de que no estabas en una mazmorra, sino en tu casa encerrado por otras razones y que tenias que entregar un trabajo en 2 horas\n");
 			system("pause");
 			system("cls");
 			printf("\nFINAL MALO EXTRA:   |FECHA DE ENTREGA|\n\n");
@@ -437,7 +437,7 @@ return 2580;
 if(situacion==2580)
 {
 system("cls");
-printf("Tras derrotar al trasgo, te paras a observar la sala, y te fijas en como esta cubierta de simbolos peculiares\nY todos estos parecen converger en las escaleras que hay al frente\nQue haces?\n\n-1: Subir las escaleras las escaleras\n-2: MENU\n");
+printf("Tras derrotar al trasgo, te paras a observar la sala, y te fijas en como esta cubierta de simbolos peculiares\nY todos estos parecen converger en las escaleras que hay al frente\nQue haces?\n-1: Subir las escaleras las escaleras\n-2: MENU\n");
 do
 {
 scanf("%c",&decision);
