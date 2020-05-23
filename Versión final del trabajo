@@ -185,7 +185,7 @@ if(situacion==251)
 	(*inv).dinero=0;
 	system("cls");
 	if(volver==0);
-	printf("Abres los ojos, y lo primero que observas es la reinante oscuridad en tu entorno.\n");
+	printf("Abres los ojos, lo primero que observas es la reinante oscuridad en tu entorno.\n");
 	printf("\nPor mucho que lo intentas no recuerdas quien eres ni que haces en una cueva como esta\nQue haces?\n-1: Inspeccionar el terreno\n-2: Buscar una salida\n-3: MENU\n\n");
 	do
 	{
@@ -193,7 +193,7 @@ if(situacion==251)
 
 	if(decision=='1')
 		{
-	printf("Observas que hay una luz sobre tu cabeza\nAl mirar hacia arriba ves como esta a mucha altura, parece ser la luz del sol pasando por una grieta...\nDeduces que has caido por ahi, al ver varios escombros a tu alrededor\nTras acostumbrarte a la oscuridad de la sala, ves como la cueva sigue hacia delante\n");
+	printf("Observas que hay una luz sobre tu cabeza\nAl mirar hacia arriba ves como esta a mucha altura, parece ser la luz del sol\npasando por una grieta...\nDeduces que has caido por ahi, al ver varios escombros a tu alrededor\nTras acostumbrarte a la oscuridad de la sala,\nves como la cueva sigue hacia delante\n");
 	(*pi).pista1=1;
 		}	
 	if(decision=='3')
@@ -449,7 +449,7 @@ return 5600;
 }
 if(situacion==259)
 {
-	printf("Tras un largo tramo de subida, empiezas a ver un destello de luz.\n Al salir te encuentras en un claro de un bosque, y ves un camino, lo sigues y llegas a un pueblo cuyos habitantes te reciben con los brazos abiertos.\n Has sobrevivido a la mazmorra y pro fin puedes descansar.\nEnhorabuena.\n");
+	printf("Tras un largo tramo de subida, empiezas a ver un destello de luz.\n Al salir te encuentras en un claro de un bosque, y ves un camino, lo sigues y llegas a un pueblo cuyos habitantes te reciben con los brazos abiertos.\n Has sobrevivido a la mazmorra y pro fin puedes descansar.\n\n");
 	printf("||Proyecto hecho por Pablo Martinez-Conde y Miguel Angel Pascual||\n\n");
 	system("pause");
 	return 260;
@@ -472,7 +472,7 @@ int i;
 			do
 			{
 				system("cls");
-				printf("MENU, ELIGE :\n 1-Empezar partida\n 2-Salir del juego\n");
+				printf("MENU, ELIGE :\n1-Empezar partida\n2-Salir del juego\n");
 				scanf("%c",&menuinicio);
 				fflush(stdin);
 			}while(menuinicio!='1'&&menuinicio!='2');
@@ -487,7 +487,7 @@ int i;
     		printf("Introduzca el nombre del personaje(15 caracteres maximo):\n");
     		fflush(stdin);
     		gets(pe.nombre);   
-   			printf("Elige la clase de tu personaje: \n 1-Guardian\n 2-Barbaro\n 3-Caballero\n -El guardian ha sobrevivido multiples batallas, teniendo un cuerpo resistente\n-El barbaro aprovecha su fuerza natural para atacar a sus enemigos\n-El caballero ha entrenado en varias artes, siendo un personaje equilibrado\n\n");
+   			printf("Elige la clase de tu personaje: \n1-Guardian\n2-Barbaro\n3-Caballero\n-El guardian ha sobrevivido multiples batallas, teniendo un cuerpo resistente\n-El barbaro aprovecha su fuerza natural para atacar a sus enemigos\n-El caballero ha entrenado en varias artes, siendo un personaje equilibrado\n");
     			do		
 					scanf("%c",&menunum);
     			while(menunum!='1'&&menunum!='2'&&menunum!='3');
